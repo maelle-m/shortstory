@@ -1,0 +1,41 @@
+<%= form_with model: @story, url: stories_path, local: true, class: 'container mt-5 story-form' do |form| %>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="form-group mb-3">
+        <%= form.label :number_of_characters, "How many adventurers embark on this journey?", class: 'form-label' %>
+        <%= form.number_field :number_of_characters, class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :character_names, "Enter the names of your characters:", class: 'form-label' %>
+        <div id="names-container" class="mb-2">
+          <%= form.text_field :character_names, name: 'story[character_names][]', class: 'form-control character-name-field' %>
+        </div>
+        <%= button_tag type: 'button', id: 'add-name-btn', class: 'btn btn-info add-character-btn' do %>
+          Add a Character
+        <% end %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :average_age, "What is the average age of our explorers?", class: 'form-label' %>
+        <%= form.number_field :average_age, class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :setting, "Choose a setting for your story:", class: 'form-label' %>
+        <%= form.select :setting, ['Magical Forest', 'Distant Galaxy', 'Ancient Kingdom', 'Other'], {}, { id: 'setting-dropdown', class: 'form-select setting-select' } %>
+        <%= form.text_field :custom_setting, id: 'custom-setting-field', class: 'form-control mt-2', style: 'display: none;', placeholder: 'Or describe your own...' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :theme, "Choose a theme for your story:", class: 'form-label' %>
+        <%= form.select :theme, ['Adventure', 'Friendship', 'Mystery', 'Other'], {}, { id: 'theme-dropdown', class: 'form-select theme-select' } %>
+        <%= form.text_field :custom_theme, id: 'custom-theme-field', class: 'form-control mt-2', style: 'display: none;', placeholder: 'Or create your own...' %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.submit "Weave the Tale...", class: "btn btn-primary btn-block submit-story-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

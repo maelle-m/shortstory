@@ -1,0 +1,28 @@
+.story-form {
+  .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control, .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+
+  .submit-story-btn, #add-name-btn {
+    @extend .btn;
+  }
+}
+
+#names-container {
+  .character-name-field:not(:first-child) {
+    margin-top: 0.5rem;
+  }
+}
